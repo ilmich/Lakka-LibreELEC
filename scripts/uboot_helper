@@ -244,6 +244,12 @@ devices = \
     },
   },
   'Rockchip': {
+    'RK322x': {
+      'rk322x': {
+        'dtb': 'rk3229-box.dtb',
+        'config': 'rk322x-linux-miniloader_defconfig'
+      },
+    },
     'RK3288': {
       'miqi': {
         'dtb': 'rk3288-miqi.dtb',

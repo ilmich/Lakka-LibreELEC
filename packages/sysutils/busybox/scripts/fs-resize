@@ -26,6 +26,9 @@ if [ -e /storage/.please_resize_me ] ; then
     "/dev/mmcblk"*)
       DISK=$(echo $PART | sed s/p2$//g)
       ;;
+    "/dev/rknand"*)
+      DISK=$(echo $PART | sed s/p2$//g)
+      ;;
     *)
       DISK=$(echo $PART | sed s/2$//g)
       ;;
