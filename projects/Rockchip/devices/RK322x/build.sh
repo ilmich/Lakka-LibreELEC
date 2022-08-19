@@ -1,16 +1,14 @@
-CUSTOM_LIBRETRO_CORES="\
+ CUSTOM_LIBRETRO_CORES="\
                   2048 \
                   81 \
                   a5200 \
                   atari800 \
-                  beetle_lynx \
                   beetle_ngp \
                   beetle_pce \
                   beetle_pce_fast \
                   beetle_pcfx \
                   beetle_psx \
                   beetle_saturn \
-                  beetle_supafaust \
                   beetle_supergrafx \
                   beetle_vb \
                   beetle_wswan \
@@ -55,6 +53,9 @@ CUSTOM_LIBRETRO_CORES="\
                   lowres_nx \
                   lutro \
                   mame2000 \
+                  mame2003_plus \
+                  mame2010 \
+                  mame2015 \
                   melonds \
                   meowpc98 \
                   mgba \
@@ -99,7 +100,6 @@ CUSTOM_LIBRETRO_CORES="\
                   stella \
                   stella2014 \
                   superbroswar \
-                  swanstation \
                   tgbdual \
                   theodore \
                   tic80 \
@@ -115,3 +115,4 @@ CUSTOM_LIBRETRO_CORES="\
                   xrick \
                   yabause \
                  " BUILDER_NAME=ilmich BUILD_PERIODIC=nightly PROJECT=Rockchip DEVICE=RK322x ARCH=arm UBOOT_SYSTEM=rk322x make image
+
