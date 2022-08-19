@@ -1,0 +1,39 @@
+diff -ruPN retroarch-9b282aa742b6c3d2f2925ae5a12e2cd7c6b6ad38/gfx/drivers_display/gfx_display_gl2.c retroarch-new/gfx/drivers_display/gfx_display_gl2.c
+--- retroarch-9b282aa742b6c3d2f2925ae5a12e2cd7c6b6ad38/gfx/drivers_display/gfx_display_gl2.c	2022-08-04 17:02:25.000000000 +0200
++++ retroarch-new/gfx/drivers_display/gfx_display_gl2.c	2022-08-11 18:43:23.553025417 +0200
+@@ -135,7 +135,7 @@
+    glDisable(GL_BLEND);
+ }
+ 
+-#ifdef MALI_BUG
++#if 0
+ static bool 
+ gfx_display_gl2_discard_draw_rectangle(gfx_display_ctx_draw_t *draw,
+       unsigned width, unsigned height)
+@@ -219,7 +219,7 @@
+    if (!gl || !draw)
+       return;
+ 
+-#ifdef MALI_BUG
++#if 0
+    if (gfx_display_gl2_discard_draw_rectangle(draw, video_width,
+             video_height))
+    {
+@@ -354,7 +354,7 @@
+ {
+    glScissor(x, video_height - y - height, width, height);
+    glEnable(GL_SCISSOR_TEST);
+-#ifdef MALI_BUG
++#if 0
+    /* TODO/FIXME: If video width/height changes between
+     * a call of gfx_display_gl2_scissor_begin() and the
+     * next call of gfx_display_gl2_draw() (or if
+@@ -374,7 +374,7 @@
+ {
+    glScissor(0, 0, video_width, video_height);
+    glDisable(GL_SCISSOR_TEST);
+-#ifdef MALI_BUG
++#if 0
+    scissor_set_rectangle(0, video_width - 1, 0, video_height - 1, 0);
+ #endif
+ }
