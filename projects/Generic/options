@@ -12,9 +12,8 @@
         #
         TARGET_CPU="x86-64"
         TARGET_FEATURES="64bit"
-        if [ "${DISTRO}" = "Lakka" ]; then
-          VULKAN="vulkan-tools"
-        fi
+        # Vulkan implementation to use (vulkan-loader / no)
+        VULKAN="vulkan-loader"
         ;;
       i386)
         if [ "${DISTRO}" != "Lakka" ]; then
@@ -23,6 +22,8 @@
         else
           TARGET_CPU="i686"
           TARGET_FEATURES="32bit"
+          # Vulkan implementation to use (vulkan-loader / no)
+          VULKAN="no"
         fi
         ;;
     esac
@@ -69,11 +70,7 @@
     OPENGLES="no"
 
   # Displayserver to use (x11 / no)
-    DISPLAYSERVER="x11"
-
-    if [ "${DISTRO}" = "Lakka" ]; then
-      DISPLAYSERVER="no"
-    fi
+    DISPLAYSERVER="no"
 
   # KODI Player implementation to use (default / bcm2835-driver / libfslvpuwrap)
     KODIPLAYER_DRIVER="default"
@@ -95,11 +92,7 @@
     ADDITIONAL_DRIVERS="$ADDITIONAL_DRIVERS bcm_sta"
 
   # build and install driver addons (yes / no)
-    DRIVER_ADDONS_SUPPORT="yes"
-
-    if [ "${DISTRO}" = "Lakka" ]; then
-      DRIVER_ADDONS_SUPPORT="no"
-    fi
+    DRIVER_ADDONS_SUPPORT="no"
 
   # driver addons to install:
   # for a list of additional drivers see packages/linux-driver-addons

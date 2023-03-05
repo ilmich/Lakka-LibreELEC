@@ -7,6 +7,7 @@ PKG_VERSION="${GENERIC_L4T_VERSION}"
 
 PKG_DEPENDS_TARGET="mesa libglvnd xorg-server"
 PKG_DEPENDS_HOST="xorg-server"
+PKD_DEPENDS_INIT="busybox:init"
 
 if [  "${VULKAN}" = "" -o "${VULKAN}" = "no" ]; then
   :
@@ -428,10 +429,10 @@ makeinstall_init() {
   mkdir -p ${INSTALL}/{firmware,splash}
   cp -PRv ${PKG_BUILD}/init_install/* ${INSTALL}/
 
-  if [ -f "${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/custom-tegra-firmware/tegra21x_xusb_firmware" ]; then
+  if [ -f "${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/custom-tegra-firmware/tegra21x_xusb_firmware" -a -f "${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/custom-tegra-firmware/tegra210b01_xusb_firmware"]; then
     PWD="$(pwd)"
     cd ${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/custom-tegra-firmware
-    cp -r tegra21x_xusb_firmware ${INSTALL}/usr/lib/firmware
+    cp -r tegra21*_xusb_firmware ${INSTALL}/usr/lib/firmware
     cd ${PWD}
   fi
 

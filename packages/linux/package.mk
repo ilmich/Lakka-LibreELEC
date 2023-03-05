@@ -22,8 +22,8 @@ case "${LINUX}" in
     PKG_SOURCE_NAME="linux-${LINUX}-${PKG_VERSION}.tar.gz"
     ;;
   raspberrypi)
-    PKG_VERSION="427c6bd8835e197693e9b4aedbe45c2c3c84cdce" # 5.10.110
-    PKG_SHA256="0b80f1f3b57874af08c0e3c7d3edc2287639c0705f99fde705055fc303317432"
+    PKG_VERSION="8e1110a580887f4b82303b9354c25d7e2ff5860e" # 5.10.110
+    PKG_SHA256="e3244061e44426eafe97541633b87a71b8be1828d1bc48a18ec4c83fddb2f4c5"
     PKG_URL="https://github.com/raspberrypi/linux/archive/${PKG_VERSION}.tar.gz"
     PKG_SOURCE_NAME="linux-${LINUX}-${PKG_VERSION}.tar.gz"
     ;;
@@ -34,17 +34,17 @@ case "${LINUX}" in
     PKG_PATCH_DIRS="${PROJECT} ${PROJECT}/${DEVICE}"
     PKG_SOURCE_NAME="linux-$DEVICE.tar.gz"
     #Need to find a better way to do this for l4t platforms!
-    PKG_SHA256=$L4T_COMBINED_KERNEL_SHA256
+    PKG_SHA256="${L4T_COMBINED_KERNEL_SHA256}"
     ;;
   ayn-odin)
    PKG_SHA256="b425b70a6379f3415ed349f5c5719d4a6f315523"
    PKG_VERSION="${PKG_SHA256}"
    PKG_URL="https://gitlab.com/tjstyle/linux.git"
-   PKG_PATCH_DIRS="default ayn-odin"
+   PKG_PATCH_DIRS="ayn-odin"
    ;;
   *)
-    PKG_VERSION="5.10.123"
-    PKG_SHA256="654ab0960b70013e7dad6b3782c25d62e13cbb8c053010daef667d5d74061e52"
+    PKG_VERSION="5.10.161"
+    PKG_SHA256="7aaaf6d0bcd8a2cfa14ad75f02ca62bb2de08aad3bee3eff198de49ea5254079"
     PKG_URL="https://www.kernel.org/pub/linux/kernel/v5.x/${PKG_NAME}-${PKG_VERSION}.tar.xz"
     PKG_PATCH_DIRS="default ${DISTRO}-default"
     ;;
@@ -291,7 +291,7 @@ pre_make_target() {
   if [ "${TARGET_ARCH}" = "x86_64" -o "${TARGET_ARCH}" = "i386" ]; then
     # copy some extra firmware to linux tree
     mkdir -p ${PKG_BUILD}/external-firmware
-      cp -a $(get_build_dir kernel-firmware)/.copied-firmware/{amdgpu,amd-ucode,i915,radeon,e100,rtl_nic} ${PKG_BUILD}/external-firmware
+      cp -a $(get_build_dir kernel-firmware)/.copied-firmware/{amdgpu,amd-ucode,i915,nvidia,radeon,e100,rtl_nic} ${PKG_BUILD}/external-firmware
 
     cp -a $(get_build_dir intel-ucode)/intel-ucode ${PKG_BUILD}/external-firmware
 
@@ -320,7 +320,7 @@ pre_make_target() {
     if [ -f "${DISTRO_DIR}/${DISTRO}/kernel_options_overrides" ]; then
       while read OPTION; do
         [ -z "${OPTION}" -o -n "$(echo "${OPTION}" | grep '^#')" ] && continue
-  
+
         OPTION_NAME=${OPTION%%=*}
         OPTION_VAL_OVR=${OPTION##*=}
         OPTION_VAL_CFG=$(${PKG_BUILD}/scripts/config --state ${OPTION_NAME})
@@ -392,9 +392,9 @@ make_target() {
     KERNEL_UIMAGE_TARGET="${KERNEL_TARGET}"
     KERNEL_TARGET="${KERNEL_TARGET/uImage/Image}"
   fi
-  
+
   if [ "${LINUX}" = "L4T" ]; then
-     export KCFLAGS+="-Wno-error=sizeof-pointer-memaccess -Wno-error=missing-attributes -Wno-error=stringop-truncation -Wno-error=stringop-overflow= -Wno-error=address-of-packed-member -Wno-error=tautological-compare -Wno-error=packed-not-aligned -Wno-error=implicit-function-declaration"
+     export KCFLAGS+=" -Wno-stringop-truncation -Wno-error=stringop-overflow -Wno-maybe-uninitialized -Wno-address-of-packed-member -Wno-packed-not-aligned -Wno-array-bounds"
   fi
 
   DTC_FLAGS=-@ kernel_make TOOLCHAIN="${TOOLCHAIN}" ${KERNEL_TARGET} ${KERNEL_MAKE_EXTRACMD} modules
@@ -475,7 +475,7 @@ makeinstall_target() {
   if [ "${BOOTLOADER}" = "switch-bootloader" -o "${BOOTLOADER}" = "odin-bootloader" ]; then
     mkdir -p $INSTALL/usr/share/bootloader/boot/
     if [ "${BOOTLOADER}" = "switch-bootloader" ]; then
-      cp arch/arm64/boot/dts/tegra210-icosa.dtb ${INSTALL}/usr/share/bootloader/boot/
+      cp arch/arm64/boot/dts/*.dtb ${INSTALL}/usr/share/bootloader/boot/
     else
       cp arch/arm64/boot/dts/qcom/sdm845-ayn-odin.dtb ${INSTALL}/usr/share/bootloader/boot/
     fi

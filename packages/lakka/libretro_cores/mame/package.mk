@@ -1,5 +1,5 @@
 PKG_NAME="mame"
-PKG_VERSION="b7dd999590717638ceade2e24d16d63147aa12ad"
+PKG_VERSION="f7761a9902d59030882c58d4482446196e748c50"
 PKG_LICENSE="MAME"
 PKG_SITE="https://github.com/libretro/mame"
 PKG_URL="${PKG_SITE}.git"
@@ -39,6 +39,6 @@ makeinstall_target() {
   mkdir -p ${INSTALL}/usr/lib/libretro
     cp -v mame_libretro.so ${INSTALL}/usr/lib/libretro/
 
-  mkdir -p ${INSTALL}/usr/share/retroarch-system/mame
-    cp -vr artwork samples ${INSTALL}/usr/share/retroarch-system/mame
+  mkdir -p ${INSTALL}/usr/share/retroarch/system/mame
+    cp -vr artwork samples ${INSTALL}/usr/share/retroarch/system/mame
 }

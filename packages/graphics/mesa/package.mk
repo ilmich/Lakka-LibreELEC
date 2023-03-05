@@ -3,8 +3,8 @@
 # Copyright (C) 2018-present Team LibreELEC (https://libreelec.tv)
 
 PKG_NAME="mesa"
-PKG_VERSION="22.1.4"
-PKG_SHA256="670d8cbe8b72902a45ea2da68a9da4dc4a5d99c5953a926177adbce1b1640b76"
+PKG_VERSION="22.1.7"
+PKG_SHA256="da838eb2cf11d0e08d0e9944f6bd4d96987fdc59ea2856f8c70a31a82b355d89"
 PKG_LICENSE="OSS"
 PKG_SITE="http://www.mesa3d.org/"
 PKG_URL="https://mesa.freedesktop.org/archive/mesa-${PKG_VERSION}.tar.xz"
@@ -70,10 +70,6 @@ else
   PKG_MESON_OPTS_TARGET+=" -Dgallium-va=disabled"
 fi
 
-if listcontains "${GRAPHIC_DRIVERS}" "crocus"; then
-  PKG_MESON_OPTS_TARGET+=" -Dprefer-crocus=true"
-fi
-
 if listcontains "${GRAPHIC_DRIVERS}" "vmware" || listcontains "${GRAPHIC_DRIVERS}" "freedreno"; then
   PKG_MESON_OPTS_TARGET+=" -Dgallium-xa=enabled"
 else
@@ -87,7 +83,7 @@ else
 fi
 
 if [ "${VULKAN_SUPPORT}" = "yes" ]; then
-  PKG_DEPENDS_TARGET+=" $VULKAN"
+PKG_DEPENDS_TARGET+=" $VULKAN"
   if [ "${PROJECT}" = "Generic" -a "${ARCH}" = "x86_64" ]; then
     PKG_MESON_OPTS_TARGET="${PKG_MESON_OPTS_TARGET//-Dvulkan-drivers=/-Dvulkan-drivers=amd,intel}"
   elif [ "${PROJECT}" = "RPi" -a "${DEVICE:0:4}" = "RPi4" ]; then

@@ -146,10 +146,10 @@
 # Windowmanager to use (fluxbox / none)
   WINDOWMANAGER="none"
 
-# Xorg Graphic drivers to use (all / i915,i965,r200,r300,r600,nvidia)
+# Xorg Graphic drivers to use (all / i915,r300,r600,nvidia)
 # Space separated list is supported,
-# e.g. GRAPHIC_DRIVERS="i915 i965 r300 r600 radeonsi nvidia"
-  GRAPHIC_DRIVERS="crocus r300 r600 radeonsi iris i915 nouveau freedreno"
+# e.g. GRAPHIC_DRIVERS="i915 r300 r600 radeonsi nvidia"
+  GRAPHIC_DRIVERS="crocus r300 r600 radeonsi iris i915 nouveau"
 
 # build and install Joystick support (yes / no)
   JOYSTICK_SUPPORT="yes"
@@ -216,13 +216,17 @@
                   desmume \
                   desmume_2015 \
                   dinothawr \
+                  dirksimple \
                   dolphin \
                   dosbox \
+                  dosbox_core \
                   dosbox_pure \
                   dosbox_svn \
                   easyrpg \
                   emux_sms\
                   ecwolf \
+                  ep128emu \
+                  fake_08 \
                   fbalpha2012 \
                   fbneo \
                   fceumm \
@@ -243,6 +247,7 @@
                   hatari \
                   higan_sfc \
                   higan_sfc_balanced \
+                  jaxe \
                   jumpnbump \
                   kronos \
                   lowres_nx \
@@ -258,12 +263,14 @@
                   mesen \
                   mesen_s \
                   mgba \
+                  mojozork \
                   mrboom \
                   mu \
                   mupen64plus_next \
                   neocd \
                   nestopia \
                   np2kai \
+                  numero \
                   nxengine \
                   o2em \
                   openlara \
@@ -302,6 +309,7 @@
                   swanstation \
                   tgbdual \
                   theodore \
+                  thepowdertoy \
                   tic80 \
                   tyrquake \
                   uae4arm \
@@ -337,6 +345,7 @@
                                desmume_2015 \
                                dolphin \
                                dosbox \
+                               dosbox_core \
                                dosbox_pure \
                                dosbox_svn \
                                fbneo \
@@ -379,9 +388,11 @@
   elif [ "${PROJECT}" = "Amlogic" -o "${PROJECT}" = "Rockchip" -o "${PROJECT}" = "Allwinner" ]; then
     EXCLUDE_LIBRETRO_CORES+=" yabasanshiro"
   elif [ "${PROJECT}" = "Generic" -a "${ARCH}" = "i386" ]; then
-    EXCLUDE_LIBRETRO_CORES+=" lr_moonlight openlara"
+    EXCLUDE_LIBRETRO_CORES+=" fake_08 lr_moonlight openlara"
   elif [ "${PROJECT}" = "Ayn" -a "${DEVICE}" = "Odin" ]; then
-    EXCLUDE_LIBRETRO_CORES+=" same_cdi lr_moonlight"
+    EXCLUDE_LIBRETRO_CORES+=" lr_moonlight"
+  elif [ "${PROJECT}" = "L4T" -a "${DEVICE}" = "Switch" ]; then
+    EXCLUDE_LIBRETRO_CORES+=" kronos"
   fi
 
   if [ "${OPENGLES_SUPPORT}" = "yes" ]; then
@@ -413,3 +424,4 @@
   if [ -n "${CUSTOM_LIBRETRO_CORES}" ]; then
     LIBRETRO_CORES="${CUSTOM_LIBRETRO_CORES}"
   fi
+
