@@ -1,6 +1,6 @@
 diff -ruPN linux/arch/arm/boot/dts/Makefile linux-trip/arch/arm/boot/dts/Makefile
 --- linux/arch/arm/boot/dts/Makefile	2021-10-27 09:56:57.000000000 +0200
-+++ linux-trip/arch/arm/boot/dts/Makefile	2022-04-15 10:39:10.000000000 +0200
++++ linux-trip/arch/arm/boot/dts/Makefile	2023-02-22 16:44:48.268975400 +0100
 @@ -982,6 +982,12 @@
  	rk3188-px3-evb.dtb \
  	rk3188-radxarock.dtb \
@@ -16,7 +16,7 @@ diff -ruPN linux/arch/arm/boot/dts/Makefile linux-trip/arch/arm/boot/dts/Makefil
  	rk3288-evb-act8846.dtb \
 diff -ruPN linux/arch/arm/boot/dts/rk3229-board-mx4v-v10.dts linux-trip/arch/arm/boot/dts/rk3229-board-mx4v-v10.dts
 --- linux/arch/arm/boot/dts/rk3229-board-mx4v-v10.dts	1970-01-01 01:00:00.000000000 +0100
-+++ linux-trip/arch/arm/boot/dts/rk3229-board-mx4v-v10.dts	2022-06-08 08:27:13.000000000 +0200
++++ linux-trip/arch/arm/boot/dts/rk3229-board-mx4v-v10.dts	2023-02-22 16:44:48.268975400 +0100
 @@ -0,0 +1,36 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +
@@ -56,7 +56,7 @@ diff -ruPN linux/arch/arm/boot/dts/rk3229-board-mx4v-v10.dts linux-trip/arch/arm
 +};
 diff -ruPN linux/arch/arm/boot/dts/rk3229-board-mx4vn-v10.dts linux-trip/arch/arm/boot/dts/rk3229-board-mx4vn-v10.dts
 --- linux/arch/arm/boot/dts/rk3229-board-mx4vn-v10.dts	1970-01-01 01:00:00.000000000 +0100
-+++ linux-trip/arch/arm/boot/dts/rk3229-board-mx4vn-v10.dts	2022-06-08 08:27:05.000000000 +0200
++++ linux-trip/arch/arm/boot/dts/rk3229-board-mx4vn-v10.dts	2023-02-22 16:44:48.269975400 +0100
 @@ -0,0 +1,32 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +
@@ -92,7 +92,7 @@ diff -ruPN linux/arch/arm/boot/dts/rk3229-board-mx4vn-v10.dts linux-trip/arch/ar
 +};
 diff -ruPN linux/arch/arm/boot/dts/rk3229-board-mx4vr-v01.dts linux-trip/arch/arm/boot/dts/rk3229-board-mx4vr-v01.dts
 --- linux/arch/arm/boot/dts/rk3229-board-mx4vr-v01.dts	1970-01-01 01:00:00.000000000 +0100
-+++ linux-trip/arch/arm/boot/dts/rk3229-board-mx4vr-v01.dts	2022-06-08 08:26:58.000000000 +0200
++++ linux-trip/arch/arm/boot/dts/rk3229-board-mx4vr-v01.dts	2023-02-22 16:44:48.269975400 +0100
 @@ -0,0 +1,32 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +
@@ -128,7 +128,7 @@ diff -ruPN linux/arch/arm/boot/dts/rk3229-board-mx4vr-v01.dts linux-trip/arch/ar
 +};
 diff -ruPN linux/arch/arm/boot/dts/rk3229-box-hk1mini-ovclk.dts linux-trip/arch/arm/boot/dts/rk3229-box-hk1mini-ovclk.dts
 --- linux/arch/arm/boot/dts/rk3229-box-hk1mini-ovclk.dts	1970-01-01 01:00:00.000000000 +0100
-+++ linux-trip/arch/arm/boot/dts/rk3229-box-hk1mini-ovclk.dts	2022-06-09 17:03:10.000000000 +0200
++++ linux-trip/arch/arm/boot/dts/rk3229-box-hk1mini-ovclk.dts	2023-02-22 16:44:48.269975400 +0100
 @@ -0,0 +1,41 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +
@@ -173,13 +173,13 @@ diff -ruPN linux/arch/arm/boot/dts/rk3229-box-hk1mini-ovclk.dts linux-trip/arch/
 +};
 diff -ruPN linux/arch/arm/boot/dts/rk3229-box-hk1mini.dts linux-trip/arch/arm/boot/dts/rk3229-box-hk1mini.dts
 --- linux/arch/arm/boot/dts/rk3229-box-hk1mini.dts	1970-01-01 01:00:00.000000000 +0100
-+++ linux-trip/arch/arm/boot/dts/rk3229-box-hk1mini.dts	2022-08-18 15:37:34.483549144 +0200
++++ linux-trip/arch/arm/boot/dts/rk3229-box-hk1mini.dts	2023-02-22 16:44:48.270975399 +0100
 @@ -0,0 +1,40 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +
 +/dts-v1/;
 +#include "rk322x-box-dcdc.dtsi"
-+#include "rk3229-cpu-opp-test.dtsi"
++#include "rk3229-cpu-opp.dtsi"
 +
 +/ {
 +	model = "Rockchip RK3229 Box";
@@ -217,7 +217,7 @@ diff -ruPN linux/arch/arm/boot/dts/rk3229-box-hk1mini.dts linux-trip/arch/arm/bo
 +};
 diff -ruPN linux/arch/arm/boot/dts/rk3229-box-mxq4kpro-ovclk.dts linux-trip/arch/arm/boot/dts/rk3229-box-mxq4kpro-ovclk.dts
 --- linux/arch/arm/boot/dts/rk3229-box-mxq4kpro-ovclk.dts	1970-01-01 01:00:00.000000000 +0100
-+++ linux-trip/arch/arm/boot/dts/rk3229-box-mxq4kpro-ovclk.dts	2022-04-21 10:47:24.000000000 +0200
++++ linux-trip/arch/arm/boot/dts/rk3229-box-mxq4kpro-ovclk.dts	2023-02-22 16:44:48.270975399 +0100
 @@ -0,0 +1,41 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +
@@ -262,14 +262,13 @@ diff -ruPN linux/arch/arm/boot/dts/rk3229-box-mxq4kpro-ovclk.dts linux-trip/arch
 +};
 diff -ruPN linux/arch/arm/boot/dts/rk3229-box-mxq4kpro.dts linux-trip/arch/arm/boot/dts/rk3229-box-mxq4kpro.dts
 --- linux/arch/arm/boot/dts/rk3229-box-mxq4kpro.dts	1970-01-01 01:00:00.000000000 +0100
-+++ linux-trip/arch/arm/boot/dts/rk3229-box-mxq4kpro.dts	2022-08-18 13:55:40.501132019 +0200
-@@ -0,0 +1,40 @@
++++ linux-trip/arch/arm/boot/dts/rk3229-box-mxq4kpro.dts	2023-02-27 14:19:01.667614066 +0100
+@@ -0,0 +1,39 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +
 +/dts-v1/;
 +#include "rk322x-box-dcdc.dtsi"
-+#include "rk3229-cpu-opp.dtsi"
-+
++#include "rk322x-cpu-opp.dtsi"
 +/ {
 +	model = "Rockchip RK3229 Box";
 +
@@ -306,13 +305,13 @@ diff -ruPN linux/arch/arm/boot/dts/rk3229-box-mxq4kpro.dts linux-trip/arch/arm/b
 +};
 diff -ruPN linux/arch/arm/boot/dts/rk3229-box-t95vpro.dts linux-trip/arch/arm/boot/dts/rk3229-box-t95vpro.dts
 --- linux/arch/arm/boot/dts/rk3229-box-t95vpro.dts	1970-01-01 01:00:00.000000000 +0100
-+++ linux-trip/arch/arm/boot/dts/rk3229-box-t95vpro.dts	2022-08-18 15:37:30.003548839 +0200
++++ linux-trip/arch/arm/boot/dts/rk3229-box-t95vpro.dts	2023-02-27 14:19:12.976613213 +0100
 @@ -0,0 +1,40 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +
 +/dts-v1/;
 +#include "rk322x-box-dcdc.dtsi"
-+#include "rk3229-cpu-opp-test.dtsi"
++#include "rk322x-cpu-opp.dtsi"
 +
 +/ {
 +	model = "Rockchip RK3229 Box";
@@ -350,7 +349,7 @@ diff -ruPN linux/arch/arm/boot/dts/rk3229-box-t95vpro.dts linux-trip/arch/arm/bo
 +};
 diff -ruPN linux/arch/arm/boot/dts/rk3229-box-tx2-ovclk.dts linux-trip/arch/arm/boot/dts/rk3229-box-tx2-ovclk.dts
 --- linux/arch/arm/boot/dts/rk3229-box-tx2-ovclk.dts	1970-01-01 01:00:00.000000000 +0100
-+++ linux-trip/arch/arm/boot/dts/rk3229-box-tx2-ovclk.dts	2022-06-09 17:02:52.000000000 +0200
++++ linux-trip/arch/arm/boot/dts/rk3229-box-tx2-ovclk.dts	2023-02-22 16:44:48.288975398 +0100
 @@ -0,0 +1,32 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +
@@ -386,13 +385,13 @@ diff -ruPN linux/arch/arm/boot/dts/rk3229-box-tx2-ovclk.dts linux-trip/arch/arm/
 +};
 diff -ruPN linux/arch/arm/boot/dts/rk3229-box-tx2.dts linux-trip/arch/arm/boot/dts/rk3229-box-tx2.dts
 --- linux/arch/arm/boot/dts/rk3229-box-tx2.dts	1970-01-01 01:00:00.000000000 +0100
-+++ linux-trip/arch/arm/boot/dts/rk3229-box-tx2.dts	2022-08-18 15:37:25.819548553 +0200
++++ linux-trip/arch/arm/boot/dts/rk3229-box-tx2.dts	2023-02-22 16:44:48.288975398 +0100
 @@ -0,0 +1,31 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +
 +/dts-v1/;
 +#include "rk322x-box-dcdc.dtsi"
-+#include "rk3229-cpu-opp-test.dtsi"
++#include "rk3229-cpu-opp.dtsi"
 +
 +/ {
 +	model = "Rockchip Tanix TX2 Box";
@@ -421,7 +420,7 @@ diff -ruPN linux/arch/arm/boot/dts/rk3229-box-tx2.dts linux-trip/arch/arm/boot/d
 +};
 diff -ruPN linux/arch/arm/boot/dts/rk3229-box-v884k-ovclk.dts linux-trip/arch/arm/boot/dts/rk3229-box-v884k-ovclk.dts
 --- linux/arch/arm/boot/dts/rk3229-box-v884k-ovclk.dts	1970-01-01 01:00:00.000000000 +0100
-+++ linux-trip/arch/arm/boot/dts/rk3229-box-v884k-ovclk.dts	2022-06-09 17:02:41.000000000 +0200
++++ linux-trip/arch/arm/boot/dts/rk3229-box-v884k-ovclk.dts	2023-02-22 16:44:48.288975398 +0100
 @@ -0,0 +1,32 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +
@@ -457,13 +456,13 @@ diff -ruPN linux/arch/arm/boot/dts/rk3229-box-v884k-ovclk.dts linux-trip/arch/ar
 +};
 diff -ruPN linux/arch/arm/boot/dts/rk3229-box-v884k.dts linux-trip/arch/arm/boot/dts/rk3229-box-v884k.dts
 --- linux/arch/arm/boot/dts/rk3229-box-v884k.dts	1970-01-01 01:00:00.000000000 +0100
-+++ linux-trip/arch/arm/boot/dts/rk3229-box-v884k.dts	2022-08-18 15:37:20.993548224 +0200
++++ linux-trip/arch/arm/boot/dts/rk3229-box-v884k.dts	2023-02-22 16:44:48.289975398 +0100
 @@ -0,0 +1,31 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +
 +/dts-v1/;
 +#include "rk322x-box-dcdc.dtsi"
-+#include "rk3229-cpu-opp-test.dtsi"
++#include "rk3229-cpu-opp.dtsi"
 +
 +/ {
 +	model = "Rockchip RK3229 Box";
@@ -492,7 +491,7 @@ diff -ruPN linux/arch/arm/boot/dts/rk3229-box-v884k.dts linux-trip/arch/arm/boot
 +};
 diff -ruPN linux/arch/arm/boot/dts/rk3229-box-v88mars-ovclk.dts linux-trip/arch/arm/boot/dts/rk3229-box-v88mars-ovclk.dts
 --- linux/arch/arm/boot/dts/rk3229-box-v88mars-ovclk.dts	1970-01-01 01:00:00.000000000 +0100
-+++ linux-trip/arch/arm/boot/dts/rk3229-box-v88mars-ovclk.dts	2022-06-09 17:02:25.000000000 +0200
++++ linux-trip/arch/arm/boot/dts/rk3229-box-v88mars-ovclk.dts	2023-02-22 16:44:48.289975398 +0100
 @@ -0,0 +1,37 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +
@@ -533,13 +532,13 @@ diff -ruPN linux/arch/arm/boot/dts/rk3229-box-v88mars-ovclk.dts linux-trip/arch/
 +
 diff -ruPN linux/arch/arm/boot/dts/rk3229-box-v88mars.dts linux-trip/arch/arm/boot/dts/rk3229-box-v88mars.dts
 --- linux/arch/arm/boot/dts/rk3229-box-v88mars.dts	1970-01-01 01:00:00.000000000 +0100
-+++ linux-trip/arch/arm/boot/dts/rk3229-box-v88mars.dts	2022-08-18 15:37:14.027547749 +0200
++++ linux-trip/arch/arm/boot/dts/rk3229-box-v88mars.dts	2023-02-27 14:19:30.275611909 +0100
 @@ -0,0 +1,36 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +
 +/dts-v1/;
 +#include "rk322x-box-dcdc.dtsi"
-+#include "rk3229-cpu-opp-test.dtsi"
++#include "rk322x-cpu-opp.dtsi"
 +
 +/ {
 +	model = "Rockchip V88Mars Box";
@@ -573,13 +572,13 @@ diff -ruPN linux/arch/arm/boot/dts/rk3229-box-v88mars.dts linux-trip/arch/arm/bo
 +};
 diff -ruPN linux/arch/arm/boot/dts/rk3229-box.dts linux-trip/arch/arm/boot/dts/rk3229-box.dts
 --- linux/arch/arm/boot/dts/rk3229-box.dts	1970-01-01 01:00:00.000000000 +0100
-+++ linux-trip/arch/arm/boot/dts/rk3229-box.dts	2022-08-18 15:37:10.291547494 +0200
-@@ -0,0 +1,19 @@
++++ linux-trip/arch/arm/boot/dts/rk3229-box.dts	2023-02-27 14:15:39.479629310 +0100
+@@ -0,0 +1,17 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +
 +/dts-v1/;
 +#include "rk322x-box-dcdc.dtsi"
-+#include "rk3229-cpu-opp-test.dtsi"
++#include "rk322x-cpu-opp.dtsi"
 +
 +/ {
 +	model = "Rockchip RK3229 Box";
@@ -592,12 +591,10 @@ diff -ruPN linux/arch/arm/boot/dts/rk3229-box.dts linux-trip/arch/arm/boot/dts/r
 +&nandc {
 +	status = "okay";
 +};
-+
-+
 diff -ruPN linux/arch/arm/boot/dts/rk3229-cpu-opp-ovclk.dtsi linux-trip/arch/arm/boot/dts/rk3229-cpu-opp-ovclk.dtsi
 --- linux/arch/arm/boot/dts/rk3229-cpu-opp-ovclk.dtsi	1970-01-01 01:00:00.000000000 +0100
-+++ linux-trip/arch/arm/boot/dts/rk3229-cpu-opp-ovclk.dtsi	2022-06-06 11:03:20.000000000 +0200
-@@ -0,0 +1,54 @@
++++ linux-trip/arch/arm/boot/dts/rk3229-cpu-opp-ovclk.dtsi	2023-02-27 14:45:09.899495825 +0100
+@@ -0,0 +1,61 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +/*
 + * Copyright (c) 2017 Fuzhou Rockchip Electronics Co., Ltd
@@ -652,9 +649,16 @@ diff -ruPN linux/arch/arm/boot/dts/rk3229-cpu-opp-ovclk.dtsi linux-trip/arch/arm
 +		};
 +	};
 +};
++
++&gpu_opp_table {
++                opp-500000000 {
++                        status = "okay";
++                };
++
++};
 diff -ruPN linux/arch/arm/boot/dts/rk3229-cpu-opp-test.dtsi linux-trip/arch/arm/boot/dts/rk3229-cpu-opp-test.dtsi
 --- linux/arch/arm/boot/dts/rk3229-cpu-opp-test.dtsi	1970-01-01 01:00:00.000000000 +0100
-+++ linux-trip/arch/arm/boot/dts/rk3229-cpu-opp-test.dtsi	2022-08-18 11:21:59.045502887 +0200
++++ linux-trip/arch/arm/boot/dts/rk3229-cpu-opp-test.dtsi	2023-02-22 16:44:48.290975398 +0100
 @@ -0,0 +1,47 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +
@@ -705,8 +709,8 @@ diff -ruPN linux/arch/arm/boot/dts/rk3229-cpu-opp-test.dtsi linux-trip/arch/arm/
 +
 diff -ruPN linux/arch/arm/boot/dts/rk3229-cpu-opp.dtsi linux-trip/arch/arm/boot/dts/rk3229-cpu-opp.dtsi
 --- linux/arch/arm/boot/dts/rk3229-cpu-opp.dtsi	1970-01-01 01:00:00.000000000 +0100
-+++ linux-trip/arch/arm/boot/dts/rk3229-cpu-opp.dtsi	2022-08-18 14:00:25.072151434 +0200
-@@ -0,0 +1,50 @@
++++ linux-trip/arch/arm/boot/dts/rk3229-cpu-opp.dtsi	2023-02-27 14:45:44.510493215 +0100
+@@ -0,0 +1,56 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +/*
 + * Copyright (c) 2017 Fuzhou Rockchip Electronics Co., Ltd
@@ -757,9 +761,15 @@ diff -ruPN linux/arch/arm/boot/dts/rk3229-cpu-opp.dtsi linux-trip/arch/arm/boot/
 +		};
 +    };
 +};
++
++&gpu_opp_table {
++                opp-500000000 {
++                        status = "okay";
++                };
++};
 diff -ruPN linux/arch/arm/boot/dts/rk3229-dram-ovclk.dtsi linux-trip/arch/arm/boot/dts/rk3229-dram-ovclk.dtsi
 --- linux/arch/arm/boot/dts/rk3229-dram-ovclk.dtsi	1970-01-01 01:00:00.000000000 +0100
-+++ linux-trip/arch/arm/boot/dts/rk3229-dram-ovclk.dtsi	2022-06-06 10:54:59.000000000 +0200
++++ linux-trip/arch/arm/boot/dts/rk3229-dram-ovclk.dtsi	2023-02-22 16:44:48.291975398 +0100
 @@ -0,0 +1,20 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +/*
@@ -783,7 +793,7 @@ diff -ruPN linux/arch/arm/boot/dts/rk3229-dram-ovclk.dtsi linux-trip/arch/arm/bo
 +};
 diff -ruPN linux/arch/arm/boot/dts/rk322x-box-dcdc.dtsi linux-trip/arch/arm/boot/dts/rk322x-box-dcdc.dtsi
 --- linux/arch/arm/boot/dts/rk322x-box-dcdc.dtsi	1970-01-01 01:00:00.000000000 +0100
-+++ linux-trip/arch/arm/boot/dts/rk322x-box-dcdc.dtsi	2022-05-19 18:29:48.000000000 +0200
++++ linux-trip/arch/arm/boot/dts/rk322x-box-dcdc.dtsi	2023-02-22 16:44:48.291975398 +0100
 @@ -0,0 +1,163 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +
@@ -950,8 +960,8 @@ diff -ruPN linux/arch/arm/boot/dts/rk322x-box-dcdc.dtsi linux-trip/arch/arm/boot
 +};
 diff -ruPN linux/arch/arm/boot/dts/rk322x-box.dtsi linux-trip/arch/arm/boot/dts/rk322x-box.dtsi
 --- linux/arch/arm/boot/dts/rk322x-box.dtsi	1970-01-01 01:00:00.000000000 +0100
-+++ linux-trip/arch/arm/boot/dts/rk322x-box.dtsi	2022-08-18 11:22:18.824504237 +0200
-@@ -0,0 +1,1070 @@
++++ linux-trip/arch/arm/boot/dts/rk322x-box.dtsi	2023-06-01 19:48:17.560017056 +0200
+@@ -0,0 +1,1092 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +
 +/dts-v1/;
@@ -1005,14 +1015,10 @@ diff -ruPN linux/arch/arm/boot/dts/rk322x-box.dtsi linux-trip/arch/arm/boot/dts/
 +
 +	sdio_pwrseq: sdio-pwrseq {
 +		compatible = "mmc-pwrseq-simple";
-+		/*pinctrl-names = "default";
-+		pinctrl-0 = <&wifi_enable_h>;*/
++		pinctrl-names = "default";
++		pinctrl-0 = <&wifi_enable_h>;
 +		reset-gpios = <&gpio2 26 GPIO_ACTIVE_LOW>,
 +			<&gpio2 29 GPIO_ACTIVE_LOW>;
-+	};
-+
-+	timer {
-+		/delete-property/ arm,cpu-registers-not-fw-configured;
 +	};
 +
 +	spdif_out: spdif-out {
@@ -1091,7 +1097,7 @@ diff -ruPN linux/arch/arm/boot/dts/rk322x-box.dtsi linux-trip/arch/arm/boot/dts/
 +	/delete-property/ pinctrl-0;
 +	/delete-property/ rockchip,default-sample-phase;
 +
-+	/*cap-mmc-highspeed;*/
++	cap-mmc-highspeed;
 +	keep-power-in-suspend;
 +	non-removable;
 +};
@@ -1121,8 +1127,8 @@ diff -ruPN linux/arch/arm/boot/dts/rk322x-box.dtsi linux-trip/arch/arm/boot/dts/
 +};
 +
 +&gpu {
-+	assigned-clocks = <&cru ACLK_GPU>;
-+	assigned-clock-rates = <300000000>;
++	/*assigned-clocks = <&cru ACLK_GPU>;
++	assigned-clock-rates = <300000000>;*/
 +};
 +
 +&hdmi {
@@ -1201,8 +1207,8 @@ diff -ruPN linux/arch/arm/boot/dts/rk322x-box.dtsi linux-trip/arch/arm/boot/dts/
 +};
 +
 +&sdmmc {
-+	/delete-property/ pinctrl-names;
-+	/delete-property/ pinctrl-0;
++	/*/delete-property/ pinctrl-names;
++	/delete-property/ pinctrl-0;*/
 +
 +	cap-sd-highspeed;
 +	keep-power-in-suspend;
@@ -1399,21 +1405,38 @@ diff -ruPN linux/arch/arm/boot/dts/rk322x-box.dtsi linux-trip/arch/arm/boot/dts/
 +
 +	ir_key3 {
 +		rockchip,usercode = <0x7f80>;
-+		rockchip,key_table =
-+			<0xec KEY_ENTER>,
-+			<0xd8 KEY_BACK>,
-+			<0xc7 KEY_UP>,
-+			<0xbf KEY_DOWN>,
-+			<0xc8 KEY_LEFT>,
-+			<0xc6 KEY_RIGHT>,
-+			<0x8c KEY_HOMEPAGE>,
-+			<0x78 KEY_VOLUMEUP>,
-+			<0x76 KEY_VOLUMEDOWN>,
-+			<0x7e KEY_POWER>,
-+			<0xed KEY_POWER>,
-+			<0x7c KEY_I>,
-+			<0xb7 KEY_O>;
-+
++		rockchip,key_table = 
++	<0xae KEY_POWER>,
++            <0xb2 KEY_MUTE>,
++            <0xf6 KEY_RED>,
++            <0xee KEY_GREEN>,
++            <0xab KEY_YELLOW>,
++            <0xb0 KEY_BLUE>,
++            <0xa9 KEY_VOLUMEDOWN>,
++            <0x42 KEY_REWIND>,
++            <0x44 KEY_FORWARD>,
++            <0xb1 KEY_VOLUMEUP>,
++            <0xac KEY_HOME>,
++            <0xe4 KEY_BACK>,
++            <0xda KEY_LEFT>,
++            <0xd9 KEY_UP>,
++            <0xf2 KEY_OK>,
++            <0xd8 KEY_RIGHT>,
++            <0xd7 KEY_DOWN>,
++            <0xb6 KEY_MENU>,
++            <0xce KEY_1>,
++            <0xcd KEY_2>,
++            <0xcc KEY_3>,
++            <0xcb KEY_4>,
++            <0xca KEY_5>,
++            <0xc9 KEY_6>,
++            <0xc8 KEY_7>,
++            <0xc7 KEY_8>,
++            <0xc6 KEY_9>,
++            <0xa7 KEY_O>,
++            <0xcf KEY_0>,
++            <0xbb KEY_BACKSPACE>,
++            <0xad KEY_I>;
 +	};
 +
 +	ir_key4 {
@@ -1463,7 +1486,7 @@ diff -ruPN linux/arch/arm/boot/dts/rk322x-box.dtsi linux-trip/arch/arm/boot/dts/
 +			<0xfd KEY_VOLUMEDOWN>,
 +			<0xff KEY_POWER>,
 +			<0xf3 KEY_MUTE>,
-+			<0xbf KEY_I>,
++			<0xbf KEY_C>,
 +			<0xbe KEY_1>,
 +			<0xba KEY_2>,
 +			<0xb2 KEY_3>,
@@ -1474,7 +1497,16 @@ diff -ruPN linux/arch/arm/boot/dts/rk322x-box.dtsi linux-trip/arch/arm/boot/dts/
 +			<0xb8 KEY_8>,
 +			<0xb0 KEY_9>,
 +			<0xb6 KEY_0>,
-+			<0xb5 KEY_BACKSPACE>;
++			<0xb5 KEY_BACKSPACE>,
++			<0xfe KEY_M>,
++			<0xfa KEY_T>,
++			<0xf6 KEY_E>,
++			<0xf2 KEY_A>,
++			<0xf9 KEY_PAGEDOWN>,
++			<0xf5 KEY_PAGEUP>,
++			<0xfc KEY_HOME>,
++			<0xb3 KEY_I>,
++			<0xb7 KEY_O>;
 +	};
 +
 +	ir_key6 {
@@ -2022,27 +2054,140 @@ diff -ruPN linux/arch/arm/boot/dts/rk322x-box.dtsi linux-trip/arch/arm/boot/dts/
 +	};
 +
 +};
+diff -ruPN linux/arch/arm/boot/dts/rk322x-cpu-opp.dtsi linux-trip/arch/arm/boot/dts/rk322x-cpu-opp.dtsi
+--- linux/arch/arm/boot/dts/rk322x-cpu-opp.dtsi	1970-01-01 01:00:00.000000000 +0100
++++ linux-trip/arch/arm/boot/dts/rk322x-cpu-opp.dtsi	2023-02-22 17:02:43.361894340 +0100
+@@ -0,0 +1,46 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright (c) 2017 Fuzhou Rockchip Electronics Co., Ltd
++ */
++
++/ {
++	compatible = "rockchip,rk3229";
++
++	/delete-node/ opp-table0;
++
++	cpu0_opp_table: opp_table0 {
++		compatible = "operating-points-v2";
++		opp-shared;
++
++		opp-408000000 {
++			opp-hz = /bits/ 64 <408000000>;
++			opp-microvolt = <975000 975000 1275000>;
++			clock-latency-ns = <40000>;
++			opp-suspend;
++		};
++		opp-600000000 {
++			opp-hz = /bits/ 64 <600000000>;
++			opp-microvolt = <1000000 1000000 1275000>;
++		};
++		opp-816000000 {
++			opp-hz = /bits/ 64 <816000000>;
++			opp-microvolt = <1025000 1025000 1275000>;
++		};
++		opp-1008000000 {
++			opp-hz = /bits/ 64 <1008000000>;
++			opp-microvolt = <1075000 1075000 1275000>;
++		};
++		opp-1104000000 {
++			opp-hz = /bits/ 64 <1104000000>;
++			opp-microvolt = <1125000 1125000 1200000>;
++		};
++		opp-1200000000 {
++			opp-hz = /bits/ 64 <1200000000>;
++			opp-microvolt = <1175000 1175000 1275000>;
++		};
++		opp-1296000000 {
++			opp-hz = /bits/ 64 <1296000000>;
++			opp-microvolt = <1225000 1225000 1275000>;
++		};
++    };
++};
+diff -ruPN linux/arch/arm/boot/dts/rk322x-dram-full.dtsi linux-trip/arch/arm/boot/dts/rk322x-dram-full.dtsi
+--- linux/arch/arm/boot/dts/rk322x-dram-full.dtsi	1970-01-01 01:00:00.000000000 +0100
++++ linux-trip/arch/arm/boot/dts/rk322x-dram-full.dtsi	2023-02-22 17:01:47.059898585 +0100
+@@ -0,0 +1,24 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright (c) 2017 Fuzhou Rockchip Electronics Co., Ltd
++ */
++
++/ {
++	compatible = "rockchip,rk3229";
++
++};
++
++&dmc_opp_table {
++
++		opp-500000000 {
++			status = "okay";
++		};
++		opp-600000000 {
++			status = "okay";
++		};
++
++		opp-800000000 {
++			status = "okay";
++		};
++
++};
 diff -ruPN linux/arch/arm/boot/dts/rk322x.dtsi linux-trip/arch/arm/boot/dts/rk322x.dtsi
 --- linux/arch/arm/boot/dts/rk322x.dtsi	2022-03-13 16:23:25.000000000 +0100
-+++ linux-trip/arch/arm/boot/dts/rk322x.dtsi	2022-08-18 11:27:52.723527017 +0200
-@@ -126,19 +126,20 @@
++++ linux-trip/arch/arm/boot/dts/rk322x.dtsi	2023-02-26 10:16:12.323938074 +0100
+@@ -37,6 +37,7 @@
+ 			#cooling-cells = <2>; /* min followed by max */
+ 			clock-latency = <40000>;
+ 			clocks = <&cru ARMCLK>;
++			clock-frequency = <1392000000>;
+ 			enable-method = "psci";
+ 		};
+ 
+@@ -47,6 +48,8 @@
+ 			resets = <&cru SRST_CORE1>;
+ 			operating-points-v2 = <&cpu0_opp_table>;
+ 			#cooling-cells = <2>; /* min followed by max */
++			clocks = <&cru ARMCLK>;
++			clock-frequency = <1392000000>;
+ 			enable-method = "psci";
+ 		};
+ 
+@@ -57,6 +60,8 @@
+ 			resets = <&cru SRST_CORE2>;
+ 			operating-points-v2 = <&cpu0_opp_table>;
+ 			#cooling-cells = <2>; /* min followed by max */
++			clocks = <&cru ARMCLK>;
++			clock-frequency = <1392000000>;
+ 			enable-method = "psci";
+ 		};
+ 
+@@ -67,6 +72,8 @@
+ 			resets = <&cru SRST_CORE3>;
+ 			operating-points-v2 = <&cpu0_opp_table>;
+ 			#cooling-cells = <2>; /* min followed by max */
++			clocks = <&cru ARMCLK>;
++			clock-frequency = <1392000000>;
+ 			enable-method = "psci";
+ 		};
+ 	};
+@@ -126,19 +133,20 @@
  
  		opp-330000000 {
  			opp-hz = /bits/ 64 <330000000>;
 -			opp-microvolt = <1050000 1000000 1200000>;
-+			opp-microvolt = <1050000 1050000 1100000>;
++			opp-microvolt = <1050000 1050000 1150000>;
  		};
 -		opp-534000000 {
 -			opp-hz = /bits/ 64 <534000000>;
 -			opp-microvolt = <1050000 1000000 1200000>;
 +		opp-500000000 {
 +			opp-hz = /bits/ 64 <500000000>;
-+			opp-microvolt = <1050000 1050000 1100000>;
++			opp-microvolt = <1050000 1050000 1150000>;
  		};
  		opp-600000000 {
  			opp-hz = /bits/ 64 <600000000>;
 -			opp-microvolt = <1100000 1000000 1200000>;
-+			opp-microvolt = <1100000 1050000 1100000>;
++			opp-microvolt = <1150000 1050000 1150000>;
 +			status = "disabled";
  		};
 -		opp-786000000 {
@@ -2050,11 +2195,11 @@ diff -ruPN linux/arch/arm/boot/dts/rk322x.dtsi linux-trip/arch/arm/boot/dts/rk32
 -			opp-microvolt = <1100000 1000000 1200000>;
 +		opp-800000000 {
 +			opp-hz = /bits/ 64 <800000000>;
-+			opp-microvolt = <1100000 1050000 1100000>;
++			opp-microvolt = <1150000 1050000 1150000>;
  			status = "disabled";
  		};
  	};
-@@ -195,6 +196,20 @@
+@@ -195,6 +203,20 @@
  		interrupt-affinity = <&cpu0>, <&cpu1>, <&cpu2>, <&cpu3>;
  	};
  
@@ -2075,7 +2220,7 @@ diff -ruPN linux/arch/arm/boot/dts/rk322x.dtsi linux-trip/arch/arm/boot/dts/rk32
  	hdmi_sound: hdmi-sound {
  		compatible = "simple-audio-card";
  		simple-audio-card,name = "hdmi-sound";
-@@ -245,6 +260,8 @@
+@@ -245,6 +267,8 @@
  		clocks = <&cru HCLK_M_CRYPTO>, <&cru HCLK_S_CRYPTO>,
  		<&cru SCLK_CRYPTO>, <&cru ACLK_DMAC>;
  		clock-names = "aclk", "hclk", "sclk", "apb_pclk";
@@ -2084,7 +2229,7 @@ diff -ruPN linux/arch/arm/boot/dts/rk322x.dtsi linux-trip/arch/arm/boot/dts/rk32
  		resets = <&cru SRST_CRYPTO>;
  		reset-names = "crypto-rst";
  	};
-@@ -655,23 +672,28 @@
+@@ -655,24 +679,29 @@
  				map0 {
  					trip = <&cpu_alert0>;
  					cooling-device =
@@ -2092,10 +2237,10 @@ diff -ruPN linux/arch/arm/boot/dts/rk322x.dtsi linux-trip/arch/arm/boot/dts/rk32
 -						<&cpu1 THERMAL_NO_LIMIT 6>,
 -						<&cpu2 THERMAL_NO_LIMIT 6>,
 -						<&cpu3 THERMAL_NO_LIMIT 6>;
-+						<&cpu0 THERMAL_NO_LIMIT 1>,
-+						<&cpu1 THERMAL_NO_LIMIT 1>,
-+						<&cpu2 THERMAL_NO_LIMIT 1>,
-+						<&cpu3 THERMAL_NO_LIMIT 1>;
++						<&cpu0 THERMAL_NO_LIMIT 2>,
++						<&cpu1 THERMAL_NO_LIMIT 2>,
++						<&cpu2 THERMAL_NO_LIMIT 2>,
++						<&cpu3 THERMAL_NO_LIMIT 2>;
  				};
  				map1 {
  					trip = <&cpu_alert1>;
@@ -2104,53 +2249,54 @@ diff -ruPN linux/arch/arm/boot/dts/rk322x.dtsi linux-trip/arch/arm/boot/dts/rk32
 -						<&cpu1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
 -						<&cpu2 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
 -						<&cpu3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-+						<&cpu0 THERMAL_NO_LIMIT 3>,
-+						<&cpu1 THERMAL_NO_LIMIT 3>,
-+						<&cpu2 THERMAL_NO_LIMIT 3>,
-+						<&cpu3 THERMAL_NO_LIMIT 3>;
++						<&cpu0 THERMAL_NO_LIMIT 4>,
++						<&cpu1 THERMAL_NO_LIMIT 4>,
++						<&cpu2 THERMAL_NO_LIMIT 4>,
++						<&cpu3 THERMAL_NO_LIMIT 4>;
  				};
  				map2 {
-+					trip = <&cpu_alert0>;
-+					cooling-device =
-+						<&gpu THERMAL_NO_LIMIT 1>;
-+				};
-+				map3 {
  					trip = <&cpu_alert1>;
  					cooling-device =
--						<&gpu THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-+						<&dmc THERMAL_NO_LIMIT 1>;
+ 						<&gpu THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
  				};
++				map3 {
++					trip = <&cpu_alert1>;
++					cooling-device =
++						<&dmc THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
++				};
  			};
  		};
-@@ -735,19 +757,24 @@
+ 	};
+@@ -735,19 +764,25 @@
  	gpu_opp_table: opp-table2 {
  		compatible = "operating-points-v2";
  
 +		opp-200000000 {
 +			opp-hz = /bits/ 64 <200000000>;
-+			opp-microvolt = <1050000 1050000 1100000>;
++			opp-microvolt = <1050000 1050000 1150000>;
 +		};
 +
  		opp-300000000 {
  			opp-hz = /bits/ 64 <300000000>;
 -			opp-microvolt = <1100000 1000000 1200000>;
-+			opp-microvolt = <1050000 1050000 1100000>;
++			opp-microvolt = <1050000 1050000 1150000>;
  		};
  
  		opp-400000000 {
  			opp-hz = /bits/ 64 <400000000>;
 -			opp-microvolt = <1100000 1000000 1200000>;
-+			opp-microvolt = <1050000 1050000 1100000>;
++			opp-microvolt = <1100000 1050000 1150000>;
  		};
  
  		opp-500000000 {
  			opp-hz = /bits/ 64 <500000000>;
 -			opp-microvolt = <1100000 1000000 1200000>;
-+			opp-microvolt = <1100000 1100000 1100000>;
++			opp-microvolt = <1100000 1050000 1150000>;
++			status = "disabled";
  		};
  	};
  
-@@ -949,7 +976,7 @@
+@@ -949,7 +984,7 @@
  		bus-width = <8>;
  		rockchip,default-sample-phase = <158>;
  		fifo-depth = <0x100>;

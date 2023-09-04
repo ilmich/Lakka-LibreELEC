@@ -715,31 +715,6 @@ index 215b37ee5aaa..ad72d1796542 100644
  			 <100000000>,   <50000000>,
  			 <400000000>, <400000000>,
 
-From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
-From: Alex Bee <knaerzche@gmail.com>
-Date: Wed, 5 May 2021 22:09:44 +0200
-Subject: [PATCH] arm64: dts: rockchip: limit emmc clockrate to 150 MHz for
- Rock Pi4 board
-
-as per https://github.com/radxa/kernel/commit/db9dfc2cdd25103c553845d24967e4cb31852b61
-
-Signed-off-by: Alex Bee <knaerzche@gmail.com>
----
- arch/arm64/boot/dts/rockchip/rk3399-rock-pi-4.dtsi | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-rock-pi-4.dtsi b/arch/arm64/boot/dts/rockchip/rk3399-rock-pi-4.dtsi
-index c5d4463e4c93..05788f57a2a4 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-rock-pi-4.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-rock-pi-4.dtsi
-@@ -621,6 +621,7 @@
- 
- &sdhci {
- 	bus-width = <8>;
-+	max-frequency = <150000000>;
- 	mmc-hs400-1_8v;
- 	mmc-hs400-enhanced-strobe;
- 	non-removable;
 
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Rudi Heitbaum <rudi@heitbaum.com>
